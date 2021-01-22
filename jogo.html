@@ -1,0 +1,278 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Quem é o artista?</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="font/material-icons.css"> 
+</head>
+<body>
+  <section class="inicio">
+    <h1>Quem é o artista?</h1>     <h3> Na primeira fase aparecerão 4 artistas e apenas duas músicas,
+		 seu objetivo é acertar os artistas que cantam essas música, já
+			na segunda fase serão 3 músicas e 4 artistas, vamos ver se você conhece elas. OBS: Algumas músicas tem o início mais demorado então para ter 
+		certeza dos artista ouça até 1:30 min. </h3>
+	<button>INICIAR</button> 
+
+  </section> 
+
+  <section class="singer-1">
+  	<h1>Quem é o artista?</h1>       
+    <span class="tempo">0</span>
+  	<img src="img/drake.jpg"  class="img1" id="drake">
+  	<img src="img/konai.jpg" class="img1" id="konai"> 
+  	<img src="img/luan santana.jpg" class="img2" id="luansantana">
+  	<img src="img/travis.jpg" class="img2" id="travis">
+	
+  		<span class="mticons" class="play" id="play">play_circle_filled</span>
+  		  
+  	
+  	
+  </section>
+
+  <section class="singer-2">
+  	<h1>Quem é o artista?</h1>
+  	<span class="tempo">0</span>
+  	<img src="img/michael jackson.jpg"  class="img1" id="michaeljackson">
+  	<img src="img/michel telo.jpg" class="img1" id="micheltelo">   
+  	<img src="img/luan santana.jpg" class="img2" id="aluansantana">
+  	<img src="img/xama.jpg" class="img2" id="xama">
+  	
+  		<span class="mticons" class="play" id="play2">play_circle_filled</span>
+  		 
+  	
+  </section>
+  	
+  <section class="final">
+  	<h1 align="center">QUEM É O ARTISTA?</h1>
+  	<h2 class="time">Esse foi o seu tempo: </h2>
+  	<h2>Olho na primeira Telaaa</h2>
+  	<img src="img/drake.jpg"  class="img4" id="adrake">
+  	<img src="img/travis.jpg" class="img4" id="atravis"> <br>
+  	<h2>Agora vamos para a segunda Tela</h2>
+  	<img src="img/michael jackson.jpg"  class="img3" id="amichaeljackson">
+  	<img src="img/michel telo.jpg" class="img3" id="amicheltelo">
+  	<img src="img/luan santana.jpg" class="img3" id="bluansantana">
+  	<button class="botao" id="botao">Ver resultado</button> <br>
+  	<form>
+		<button class="botao" id="botao">Voltar ao ínico</button> 
+  	</form>
+  </section>
+
+  
+ 
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  	
+  	var musica1 = new Audio('');
+  	var musica2 = new Audio('');
+  	var musica3 = new Audio('');
+
+  	var cont = 0;
+  	var drake = 0;
+  	var travis = 0;
+  	var luansantana = 0;
+  	var micheltelo = 0;
+  	var michaeljackson = 0;
+
+  	var time;
+
+  	$('section.inicio button').on('click', function(){
+  		$('section').hide();
+  		$('section.singer-1').show();
+  			setInterval(function(){
+  			var tempo = parseInt($('span.tempo').text());
+  			soma = tempo + 1;
+  			if (soma < 10) {
+  				soma = "0"+soma;
+  			};
+  			$('span.tempo').text(soma + "s");
+  		},1000);
+  	});
+
+  	$('#travis').one('click', function(){
+  		travis++;
+  		cont++;
+  		$(this).css({opacity : 0.5});
+  		if (cont == 2) {
+  		$('section').hide();
+  		$('section.singer-2').show();
+  		musica1.pause();
+  		musica2.pause();
+  		}
+  		
+  	});
+
+  	$('#drake').one('click', function(){
+  		drake++;
+  		cont++;
+  		$(this).css({opacity : 0.5});
+  		if (cont == 2) {
+  		$('section').hide();
+  		$('section.singer-2').show();
+  		musica1.pause();
+  		musica2.pause();
+  		}
+  	});
+
+  	$('#luansantana').one('click', function(){
+  		cont++;
+  		$(this).css({opacity : 0.5});
+  		if (cont == 2) {
+  		$('section').hide();
+  		$('section.singer-2').show();
+  		musica1.pause();
+  		musica2.pause();
+  		}
+  	});
+
+  	$('#konai').one('click', function(){
+  		cont++;
+  		$(this).css({opacity : 0.5});
+  		if (cont == 2) {
+  		$('section').hide();
+  		$('section.singer-2').show();
+  		musica1.pause();
+  		musica2.pause();
+  		}
+  	});
+
+  	$('#michaeljackson').one('click', function(){
+  		cont++;
+  		michaeljackson++;
+  		$(this).css({opacity : 0.5});
+  		if (cont == 5) {
+  		$('section').hide();
+  		$('section.final').show();
+  		musica1.pause();
+  		musica2.pause();
+  		musica3.pause();
+  		var time = parseInt($('span.tempo').text());
+  		$('h2.time').text('Seu tempo foi de : '+time+'s');
+  		}
+  	});
+
+  	$('#aluansantana').one('click', function(){
+  		cont++;
+  		luansantana++;
+  		$(this).css({opacity : 0.5});
+  		if (cont == 5) {
+  		$('section').hide();
+  		$('section.final').show();
+  		musica1.pause();
+  		musica2.pause();
+  		musica3.pause();
+
+  		var time = parseInt($('span.tempo').text());
+  		$('h2.time').text('Seu tempo foi de : '+time+'s');
+  		}
+  	});
+
+  	$('#micheltelo').one('click', function(){
+  		cont++;
+  		micheltelo++;
+  		$(this).css({opacity : 0.5});
+  		if (cont == 5) {
+  		$('section').hide();
+  		$('section.final').show();
+  		musica1.pause();
+  		musica2.pause();
+  		musica3.pause();
+  		var time = parseInt($('span.tempo').text());
+  		$('h2.time').text('Seu tempo foi de : '+time+'s');
+  		}
+  	  	});
+
+  	$('#xama').one('click', function(){
+  		cont++;
+  		$(this).css({opacity : 0.5});
+  		if (cont == 5) {
+  		$('section').hide();
+  		$('section.final').show();
+  		musica1.pause();
+  		musica2.pause();
+  		musica3.pause();
+  		}
+  	});
+
+  	var msc = 0;
+  	$('#play').on('click', function(){
+  		if (msc == 0) {
+  			musica1 = new Audio('musica/msc/drake.mp3');
+  			musica1.play();
+  			musica2 = new Audio('musica/msc/Travis Scott.mp3');
+  			musica2.play();
+  			msc++;
+  		} else if (msc == 1) {
+  			musica1.pause();
+  			musica2.pause();
+  			msc--;
+  		}
+  	});
+
+  		$('#play2').on('click', function(){
+  		if (msc == 0) {
+  			musica1 = new Audio('musica/msc/Luan Santana.mp3');
+  			musica1.play();
+  			musica2 = new Audio('musica/msc/Michael jackson.mp3');
+  			musica2.play();
+  			musica3 = new Audio('musica/msc/Michel Teló.mp3');
+  			musica3.play();
+  			msc++;
+  		} else if (msc == 1) {
+  			musica1.pause();
+  			musica2.pause();
+  			musica3.pause();
+  			msc--;
+  		}
+
+  		
+  	});
+
+  	$('#info').on('click', function(){
+  		alert('');	
+  	});
+
+  	$('#info2').on('click', function(){
+  		alert('');	
+  	});
+
+  	$('#botao').on('click', function(){
+		if (drake == 0) {
+			$(adrake).css({opacity : 0.0});
+		}
+		if (travis == 0) {
+			$(atravis).css({opacity : 0.0});
+		}
+		if (michaeljackson == 0) {
+			$(amichaeljackson).css({opacity : 0.0});
+		}
+		if (luansantana == 0) {
+			$(bluansantana).css({opacity : 0.0});
+		}
+		if (micheltelo == 0) {
+			$(amicheltelo).css({opacity : 0.0});
+		}
+  		
+  		alert('Se a imagem do artista permancer ao final significa que você acertou, caso contrário ela irá sumir.');
+
+  	});
+
+  	
+
+
+
+
+  </script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
